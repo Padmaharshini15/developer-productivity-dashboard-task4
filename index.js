@@ -9,6 +9,10 @@ const authRoutes = require('./routes/authRoutes');
 const app = express();
 const port = process.env.PORT || 3000;
 
+app.use(require('cors')({
+  origin: ['https://developer-productivity-dashboard-ta.vercel.app', 'http://localhost:5173', 'http://localhost:3000'],
+  credentials: true
+}));
 app.use(express.json());
 
 app.use('/api/users', userRoutes);
